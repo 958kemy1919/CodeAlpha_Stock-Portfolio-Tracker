@@ -5,14 +5,20 @@ stock = {
     "NVDA": 500,
     "META": 470
 }
+
 total_investment = 0
+
+def current_investment(current_quantity,stock_price):
+    investment = current_quantity*stock_price
+    return investment
+
 while True:
 
     user_stock = input("Enter a stock name or Done for end: ").upper()
     if user_stock in stock:
         price = stock[user_stock]
         quantity = int(input("Enter quantity: "))
-        total_investment += quantity*price
+        total_investment += current_investment(quantity,price)
         print(f"Total investment: {total_investment}")
     elif user_stock == "DONE":
         print("Done")
